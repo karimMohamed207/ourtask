@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+<div class="nav">
+    <nav class="nav">
+        <ul>
+            <li id="pro">Our Project</li>
+            <li><a  href="/">Home</a> </li>
+            <li><a href="/tasks">Tasks</a> </li>
+            <li><a href="/login">Log in</a> </li>
+            <li><a href="/register">Register</a> </li>
+            <li><a href="/profile">Profile</a> </li>
+            <li><a id="active" href="/users">Users</a> </li>
+            <li><a href="/about">About</a> </li>
+        </ul>
+    </nav>
+</div>
+<table id="customers">
+    <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Task</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.email}">Alfreds Futterkiste</td>
+        <td th:text="${user.name}">Maria Anders</td>
+        <td th:text="${user.role}">Germany</td>
+        <td><button><a th:href="@{/addTask}" style="text-decoration: none"> Add Task</a> </button></td>
+    </tr>
+
+</table>
+
+<!--<div class="table">
+    <table>
+        <tr>
+            <th class="email">Email</th>
+            <th class="name">Name</th>
+            <th class="role">Role</th>
+            <th class="btn">Task</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td class="email" th:text="${user.email}">...@..</td>
+            <td class="name" th:text="${user.name}">..</td>
+            <td class="role" th:text="${user.role}">...</td>
+            <td class="btn"><button class="button"><a th:href="@{'/task/'+${user.email}}"> Add Task </a></button></td>
+        </tr>
+    </table>
+
+</div>-->
+</body>
+</html>

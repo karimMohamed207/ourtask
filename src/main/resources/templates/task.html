@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body id="body">
+<div class="nav">
+    <nav class="nav">
+        <ul>
+            <li id="pro">Our Project</li>
+            <li><a href="/">Home</a> </li>
+            <li><a href="/tasks">Tasks</a> </li>
+            <li><a href="/profile">Log in</a> </li>
+            <li><a href="#">Register</a> </li>
+            <li><a href="/reg">Profile</a> </li>
+            <li><a href="/users">Users</a> </li>
+            <li><a href="/about">About</a> </li>
+        </ul>
+    </nav>
+</div>
+<div class="form">
+    <form action="#" th:action="@{/addTask}" method="post" th:object="${task}">
+        <div class="div">
+            <label for="date">Date</label>
+            <input type="date" th:field="*{date}" id="date">
+            <div th:each="error: ${#fields.errors('date')}"
+                 th:text="${error}"></div>
+        </div>
+        <div class="div">
+            <label for="startTime">StartTime</label>
+            <input type="time" th:field="*{startTime}" id="startTime">
+            <div th:each="error: ${#fields.errors('startTime')}"
+                 th:text="${error}"></div>
+        </div>
+        <div class="div">
+            <label for="endTime">EndTime</label>
+            <input type="time" th:field="*{endTime}" id="endTime">
+            <div th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}"></div>
+        </div>
+        <div class="div">
+            <label for="description">Description</label>
+            <input type="text" th:field="*{description}" id="description">
+            <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+        </div>
+        <div class="div">
+            <input type="submit" value="Register">
+        </div>
+    </form>
+</div>
+</body>
+</html>

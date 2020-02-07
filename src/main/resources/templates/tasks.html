@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+<div class="nav">
+    <nav class="nav">
+        <ul>
+            <li id="pro">Our Project</li>
+            <li><a  href="/">Home</a> </li>
+            <li><a id="active" href="/tasks">Tasks</a> </li>
+            <li><a href="/profile">Log in</a> </li>
+            <li><a href="/register">Register</a> </li>
+            <li><a href="/profile">Profile</a> </li>
+            <li><a href="/users">Users</a> </li>
+            <li><a href="/about">About</a> </li>
+        </ul>
+    </nav>
+</div>
+<div class="table">
+    <table>
+        <tr>
+            <th >Date</th>
+            <th >StartTime</th>
+            <th >EndTime</th>
+            <th >User</th>
+            <th>Description</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="task : ${tasks}">
+            <td class="email" th:text="${task.date}">...@..</td>
+            <td class="name" th:text="${task.startTime}">..</td>
+            <td class="role" th:text="${task.endTime}">...</td>
+            <td class="name" th:text="${task.user.email}">..</td>
+            <td class="role" th:text="${task.description}">...</td>
+            <td class="btn"><button class="button"> Delete Task </button></td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

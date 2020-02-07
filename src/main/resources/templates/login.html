@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body id="body">
+<div class="nav">
+
+        <ul>
+            <li id="pro">Our Project</li>
+            <li><a href="/">Home</a> </li>
+            <li><a href="/tasks">Tasks</a> </li>
+            <li><a id="active" href="/login">Log in</a> </li>
+            <li><a href="/register">Register</a> </li>
+            <li><a href="/profile/{email}">Profile</a> </li>
+            <li><a href="/users">Users</a> </li>
+            <li><a href="/about">About</a> </li>
+        </ul>
+
+
+</div>
+<div class="form">
+    <form action="#" th:action="@{/login}" method="post">
+        <div class="container">
+            <h1>Login</h1>
+            <p>Please fill in this form to visit your account.</p>
+            <div style=" background: #e4d6d6;
+                 color: black;
+                 padding: 10px;
+                 text-align: center;" th:if="${param.error}">
+                <h2>Invalid Account</h2>
+            </div>
+            <hr>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" id="email" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="password" required>
+            <hr>
+
+            <button type="submit" class="registerbtn">Register</button>
+        </div>
+
+        <div class="container signin">
+            <p>if you don't have any account! please visit our <a href="/register">register page</a>.</p>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
